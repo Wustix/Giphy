@@ -6,7 +6,7 @@ var topics = ["Kansas Jayhawks", "Kansas State Wildcats", "Missouri Tigers", "Ne
 
 $("button").on("click", function () {
     var x = $(this).data("search");
-    console.log(x)
+
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=PvR3ZmrRYXjaXs61VPyDn2CDWb88eoGA&limit=10";
     console.log(queryURL);
@@ -16,9 +16,9 @@ $("button").on("click", function () {
         .done(function (response) {
             console.log(response);
         });
-        
-    
-    
+
+
+
 });
 
 
