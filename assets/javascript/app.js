@@ -15,6 +15,11 @@ $("button").on("click", function () {
     $.ajax({ url: queryURL, method: "GET" })
         .done(function (response) {
             console.log(response);
+            for (var i = 0; i < response.data.length; i++) {
+                $("#GIFarea").prepend("<p>Rating: " + response.data[i].rating + "</p>");
+                $("#GIFarea").prepend("<img src='" + response.data[i].images.downsized.url + "'>");
+            }
+
         });
 
 
