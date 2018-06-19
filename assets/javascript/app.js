@@ -9,13 +9,14 @@ $(document).ready(function () {
             
             var teams = $("<button>");
             teams.text(topics[i]);
+            teams.attr("data-search", topics[i]);
             
             $("#teams-btn").append(teams);
         }
     };
 
     $("#teams-btn").on("click", function () {
-        var x = $("#teams-btn").data([0,1,2]);
+        var x = $(this).data("search");
 
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=PvR3ZmrRYXjaXs61VPyDn2CDWb88eoGA&limit=10";
@@ -28,7 +29,7 @@ $(document).ready(function () {
                 for (var i = 0; i < response.data.length; i++) {
                     var teamsDiv = $("<div>");
                     var p = $("<p>Rating: " + response.data[i].rating + "</p>");
-                    var teamsImg = $("<img >");
+                    var teamsImg = $("<img>");
 
                     teamsImg.attr('src', response.data[i].images.downsized.url);
                     teamsDiv.append(teamsImg);
