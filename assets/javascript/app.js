@@ -15,9 +15,9 @@ $(document).ready(function () {
         }
     };
 
-    $("#teams-btn").on("click", function () {
-        var x = $(this).data("search");
-
+    $("body").on("click", "#teams-btn", function () {
+        var x = $(this).attr("data-search");
+        console.log(x)
 
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=PvR3ZmrRYXjaXs61VPyDn2CDWb88eoGA&limit=10";
         console.log(queryURL);
@@ -64,3 +64,4 @@ $(document).ready(function () {
 
 
 });
+
