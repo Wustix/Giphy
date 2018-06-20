@@ -2,18 +2,30 @@ $(document).ready(function () {
 
     var topics = ["Kansas Jayhawks", "Kansas State Wildcats", "Missouri Tigers", "Nebraska Cornhuskers", "Oklahoma Sooners", "Oklahoma State Cowboys", "Colorado Buffaloes", "Michigan Wolverines", "Miami Hurricanes", "Oregon Ducks", "USC Trojans", "Villanova Wildcats", "Ohio State Buckeyes", "West Virginia Mountaineers", "Texas Longhorns", "Wyoming Cowboys", "Florida Gators", "Alabama Crimson Tide", "Kentucky Wildcats", "Arkansas Razorbacks", "LSU Tigers"];
 
-    //var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + x + "&api_key=PvR3ZmrRYXjaXs61VPyDn2CDWb88eoGA";
-    
+
+
     function starterBtn() {
+        $("#teams-btn").empty();
         for (var i = 0; i < topics.length; i++) {
-            
+
             var teams = $("<button>");
             teams.text(topics[i]);
             teams.attr("data-search", topics[i]);
-            
+
             $("#teams-btn").append(teams);
         }
     };
+
+    $("#add-team").on("click", function (event) {
+        event.preventDefault();
+
+        var toAddTeam = $("#new-team").val().trim();
+        topics.push(toAddTeam);
+        console.log("topics");
+        $("#add-team").val('');
+        
+
+    });
 
     $("#teams-btn").on("click", "button", function () {
         var x = $(this).attr("data-search");
@@ -26,16 +38,18 @@ $(document).ready(function () {
         $.ajax({ url: queryURL, method: "GET" })
             .done(function (response) {
                 console.log(response);
+                $("#GIFarea").empty();
                 for (var i = 0; i < response.data.length; i++) {
                     var teamsDiv = $("<div>");
                     var p = $("<p>Rating: " + response.data[i].rating + "</p>");
                     var teamsImg = $("<img>");
 
-                    teamsImg.attr('src', response.data[i].images.downsized.url);
+                    teamsImg.attr('src', response.data[i].images.fixed_height_small_still.url);
+                    teamsImg.attr('data-state', 'still');
                     teamsDiv.append(teamsImg);
                     teamsDiv.append(p);
                     $("#GIFarea").prepend(teamsDiv);
-                    
+
                 }
 
             });
@@ -45,7 +59,7 @@ $(document).ready(function () {
     });
 
     starterBtn()
-    //.append(topics.length[i])
+
 
 
 
