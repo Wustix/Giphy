@@ -15,7 +15,7 @@ $(document).ready(function () {
         }
     };
 
-    $("body").on("click", "#teams-btn", function () {
+    $("#teams-btn").on("click", "button", function () {
         var x = $(this).attr("data-search");
         console.log(x)
 
