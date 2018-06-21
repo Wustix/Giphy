@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 
 
-    function starterBtn() {
+    function  starterBtn (){
         $("#teams-btn").empty();
         for (var i = 0; i < topics.length; i++) {
 
@@ -16,16 +16,30 @@ $(document).ready(function () {
         }
     };
 
-    $("#add-team").on("click", function (event) {
+    $("#new-btn").on("click", function (event) {
         event.preventDefault();
 
         var toAddTeam = $("#new-team").val().trim();
+        
         topics.push(toAddTeam);
-        console.log("topics");
-        $("#add-team").val('');
+        console.log(toAddTeam);
+        
+        //var teamAdded = $("<button>");
+       // teamAdded.text(toAddTeam);
+       // teamAdded.attr("data-search", toAddTeam);
+
+        
+        //$("#teams-btn").append(toAddTeam);
+
+        $("#new-team").val("");
+        starterBtn()
+        //console.log(teamAdded);
+        
         
 
+    
     });
+    
 
     $("#teams-btn").on("click", "button", function () {
         var x = $(this).attr("data-search");
@@ -58,8 +72,13 @@ $(document).ready(function () {
 
     });
 
-    starterBtn()
+    (document).on("click", function() {
 
+
+    });
+
+    starterBtn();
+    
 
 
 
