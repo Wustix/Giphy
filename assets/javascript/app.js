@@ -3,7 +3,6 @@ $(document).ready(function () {
     var topics = ["Kansas Jayhawks", "Kansas State Wildcats", "Missouri Tigers", "Nebraska Cornhuskers", "Oklahoma Sooners", "Oklahoma State Cowboys", "Colorado Buffaloes", "Michigan Wolverines", "Miami Hurricanes", "Oregon Ducks", "USC Trojans", "Villanova Wildcats", "Ohio State Buckeyes", "West Virginia Mountaineers", "Texas Longhorns", "Wyoming Cowboys", "Florida Gators", "Alabama Crimson Tide", "Kentucky Wildcats", "Arkansas Razorbacks", "LSU Tigers"];
 
 
-
     function starterBtn() {
         $("#teams-btn").empty();
         for (var i = 0; i < topics.length; i++) {
@@ -24,20 +23,9 @@ $(document).ready(function () {
         topics.push(toAddTeam);
         console.log(toAddTeam);
 
-        //var teamAdded = $("<button>");
-        // teamAdded.text(toAddTeam);
-        // teamAdded.attr("data-search", toAddTeam);
-
-
-        //$("#teams-btn").append(toAddTeam);
-
         $("#new-team").val("");
         starterBtn()
-        //console.log(teamAdded);
-
-
-
-
+        
     });
 
 
@@ -58,9 +46,9 @@ $(document).ready(function () {
                     var p = $("<p>Rating: " + response.data[i].rating + "</p>");
                     var teamsImg = $("<img>");
 
-                    teamsImg.attr("src", response.data[i].images.fixed_height_small_still.url);
-                    teamsImg.attr("data-still", response.data[i].images.fixed_height_small_still.url);
-                    teamsImg.attr("data-animate", response.data[i].images.fixed_height_small.url);
+                    teamsImg.attr("src", response.data[i].images.fixed_height_still.url);
+                    teamsImg.attr("data-still", response.data[i].images.fixed_height_still.url);
+                    teamsImg.attr("data-animate", response.data[i].images.fixed_height.url);
                     teamsImg.attr("data-state", "still");
                     teamsImg.addClass("images");
                     teamsDiv.append(teamsImg);
@@ -70,8 +58,6 @@ $(document).ready(function () {
                 }
 
             });
-
-
 
     });
 
@@ -87,25 +73,6 @@ $(document).ready(function () {
         }
 
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
 
