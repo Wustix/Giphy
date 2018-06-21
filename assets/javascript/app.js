@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 
 
-    function  starterBtn (){
+    function starterBtn() {
         $("#teams-btn").empty();
         for (var i = 0; i < topics.length; i++) {
 
@@ -15,31 +15,31 @@ $(document).ready(function () {
             $("#teams-btn").append(teams);
         }
     };
-
+    starterBtn();
     $("#new-btn").on("click", function (event) {
         event.preventDefault();
 
         var toAddTeam = $("#new-team").val().trim();
-        
+
         topics.push(toAddTeam);
         console.log(toAddTeam);
-        
-        //var teamAdded = $("<button>");
-       // teamAdded.text(toAddTeam);
-       // teamAdded.attr("data-search", toAddTeam);
 
-        
+        //var teamAdded = $("<button>");
+        // teamAdded.text(toAddTeam);
+        // teamAdded.attr("data-search", toAddTeam);
+
+
         //$("#teams-btn").append(toAddTeam);
 
         $("#new-team").val("");
         starterBtn()
         //console.log(teamAdded);
-        
-        
 
-    
+
+
+
     });
-    
+
 
     $("#teams-btn").on("click", "button", function () {
         var x = $(this).attr("data-search");
@@ -58,8 +58,11 @@ $(document).ready(function () {
                     var p = $("<p>Rating: " + response.data[i].rating + "</p>");
                     var teamsImg = $("<img>");
 
-                    teamsImg.attr('src', response.data[i].images.fixed_height_small_still.url);
-                    teamsImg.attr('data-state', 'still');
+                    teamsImg.attr("src", response.data[i].images.fixed_height_small_still.url);
+                    teamsImg.attr("data-still", response.data[i].images.fixed_height_small_still.url);
+                    teamsImg.attr("data-animate", response.data[i].images.fixed_height_small.url);
+                    teamsImg.attr("data-state", "still");
+                    teamsImg.addClass("images");
                     teamsDiv.append(teamsImg);
                     teamsDiv.append(p);
                     $("#GIFarea").prepend(teamsDiv);
@@ -72,13 +75,21 @@ $(document).ready(function () {
 
     });
 
-    (document).on("click", function() {
 
+    $(document).on("click", ".images", function () {
+        var state = $(this).attr('data-state');
+        if (state == 'still') {
+            $(this).attr('src', $(this).data('animate'));
+            $(this).attr('data-state', 'animate');
+        } else {
+            $(this).attr('src', $(this).data('still'));
+            $(this).attr('data-state', 'still');
+        }
 
     });
 
-    starterBtn();
-    
+
+
 
 
 
