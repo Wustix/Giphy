@@ -1,4 +1,42 @@
 * {
     box-sizing: border-box;
-}    
+} 
+body {
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}   
+.var-btn {
+    background: black;
+    color: yellow;
+    height: 45px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-family: 'Lobster', cursive, Times, Times New Roman, serif;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 35%;       
+}
+.var-btn:hover {
+    background-color: #e7e7e7;
+    color: red;
+}
 
+    
+    
+
+.images {
+    float: left;
+    width: 25%;
+    padding: 5px;
+}
+.ratings {
+    font-weight: bold;
+    font-size: 30px;
+}
+.large-area {
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+    background-size: inherit;
+}

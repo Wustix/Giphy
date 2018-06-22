@@ -10,6 +10,7 @@ $(document).ready(function () {
             var teams = $("<button>");
             teams.text(topics[i]);
             teams.attr("data-search", topics[i]);
+            teams.addClass("var-btn")
 
             $("#teams-btn").append(teams);
         }
@@ -51,6 +52,7 @@ $(document).ready(function () {
                     teamsImg.attr("data-animate", response.data[i].images.fixed_height.url);
                     teamsImg.attr("data-state", "still");
                     teamsImg.addClass("images");
+                    p.addClass("ratings")
                     teamsDiv.append(teamsImg);
                     teamsDiv.append(p);
                     $("#GIFarea").prepend(teamsDiv);
