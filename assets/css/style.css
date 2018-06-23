@@ -46,11 +46,6 @@ body {
     margin-left: 15px;
     
 }
-.large-area {
-    background-image: url(../images/background.png);
-    background-repeat: no-repeat;
-    background-size: inherit;
-}
 .display-4 {
     text-align: center;
 }
