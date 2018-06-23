@@ -1,11 +1,13 @@
 * {
     box-sizing: border-box;
 } 
-/* body {
+body {
     background-image: url(../images/background.png);
     background-repeat: no-repeat;
     background-size: cover;
-}    */
+    background-position: center;
+    background-attachment: fixed;
+}   
 .var-btn {
     background: black;
     color: yellow;
@@ -25,8 +27,10 @@
 .images {
     
     float: left;
-    width: 25%;
-    padding: 5px;
+    width: 450px;
+    padding: 15px;
+    height: 350px;;
+    
 }
 .clearfix::after {
     content: "";
@@ -36,9 +40,20 @@
 .ratings {
     font-weight: bold;
     font-size: 30px;
+    padding: 15px;
+    background: red;
+    width: 185px;
+    margin-left: 15px;
+    
 }
 .large-area {
     background-image: url(../images/background.png);
     background-repeat: no-repeat;
     background-size: inherit;
+}
+.display-4 {
+    text-align: center;
+}
+#reset {
+    background: red;
 }

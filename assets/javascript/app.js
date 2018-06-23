@@ -16,6 +16,7 @@ $(document).ready(function () {
         }
     };
     starterBtn();
+
     $("#new-btn").on("click", function (event) {
         event.preventDefault();
 
@@ -27,6 +28,10 @@ $(document).ready(function () {
         $("#new-team").val("");
         starterBtn()
         
+    });
+
+    $("#reset").on("click", function(){
+        window.location.reload();
     });
 
 
@@ -41,7 +46,7 @@ $(document).ready(function () {
         $.ajax({ url: queryURL, method: "GET" })
             .done(function (response) {
                 console.log(response);
-                $("#GIFarea").empty();
+               
                 for (var i = 0; i < response.data.length; i++) {
                     var teamsDiv = $("<div>");
                     var p = $("<p>Rating: " + response.data[i].rating + "</p>");
@@ -52,9 +57,9 @@ $(document).ready(function () {
                     teamsImg.attr("data-animate", response.data[i].images.fixed_height.url);
                     teamsImg.attr("data-state", "still");
                     teamsImg.addClass("images");
-                    p.addClass("ratings")
+                    p.addClass("ratings");
                     teamsDiv.append(teamsImg);
-                    teamsDiv.append(p);
+                    teamsDiv.prepend(p);
                     $("#GIFarea").prepend(teamsDiv);
 
                 }
